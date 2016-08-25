@@ -1,0 +1,26 @@
+{
+  "name": "joi-extension-date-within",
+  "version": "0.0.1",
+  "description": "Adds within validation to enable you to specify how many days a from a value should be",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/*_test.js"
+  },
+  "keywords": [
+    "joi",
+    "extension",
+    "date",
+    "within"
+  ],
+  "author": "Jamie McConnell <jamie_mcconnell@icloud.com>",
+  "license": "MIT",
+  "dependencies": {
+    "hoek": "^4.0.2",
+    "joi": "^9.0.4"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.0.2"
+  }
+}
