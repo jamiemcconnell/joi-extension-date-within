@@ -15,7 +15,7 @@ const withinDaysRule = {
 
     // If 'from' is a ref get the actual value.
     if(joi.isRef(params.from)) {
-      from = hoek.reach(state.parent, params.from.key)
+      from = hoek.reach(state.parent, params.from.key);
     }
 
     return (((value - from) /dayms) > params.days) ? this.createError('date.withinDays', { v: value, days: params.days, from: from }, state, options) : true;
@@ -33,4 +33,4 @@ const extension = {
   rules: rules
 };
 
-module.exports = extension
+module.exports = extension;
