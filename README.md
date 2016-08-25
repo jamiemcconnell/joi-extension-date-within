@@ -1,3 +1,21 @@
 #Joi Extension Within Date
 
-An extension to Joi to enable checking that a date is within a number of days of another
+[![Build Status](https://travis-ci.org/jamiemcconnell/joi-extension-date-within.svg?branch=master)](https://travis-ci.org/jamiemcconnell/joi-extension-date-within)
+
+An extension to Joi to enable checking that a date is within a number of days of another date property.
+
+In the below example we are confirming that `to` is within `10` days of `from`
+
+```javascript
+var schema = Joi.object({
+  from: Joi.date().required(),
+  to: Joi.date().required().withinDays(10, Joi.ref('from'))
+});
+
+var input = {
+  from: new Date(2016,3,1),
+  to: new Date(2016,3,30)
+};
+
+Joi.assert(input, schema)
+```
