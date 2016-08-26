@@ -4,7 +4,11 @@
   "description": "Adds within validation to enable you to specify how many days a from a value should be",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/*_test.js"
+    "test": "istanbul cover | mocha test/*_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jamiemcconnell/joi-extension-date-within.git"
   },
   "keywords": [
     "joi",
