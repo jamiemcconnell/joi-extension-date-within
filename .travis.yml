@@ -3,3 +3,5 @@ node_js:
   - "4.2.1"
   - "4.5.0"
   - "6.4.0"
+after_success:
+  - npm run coverage
