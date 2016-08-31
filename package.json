@@ -1,6 +1,6 @@
 {
   "name": "joi-extension-date-within",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Adds within validation to enable you to specify how many days a from a value should be",
   "main": "index.js",
   "scripts": {
