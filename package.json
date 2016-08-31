@@ -4,8 +4,9 @@
   "description": "Adds within validation to enable you to specify how many days a from a value should be",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/*_test.js",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test": "npm run jshint && mocha test/*_test.js",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "jshint": "jshint *.js test/*.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "chai": "^3.5.0",
     "coveralls": "^2.11.12",
     "istanbul": "^0.4.5",
+    "jshint": "^2.9.3",
     "mocha": "^3.0.2"
   }
 }
