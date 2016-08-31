@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/jamiemcconnell/joi-extension-date-within.svg?branch=master)](https://travis-ci.org/jamiemcconnell/joi-extension-date-within)
 [![Coverage Status](https://coveralls.io/repos/github/jamiemcconnell/joi-extension-date-within/badge.svg?branch=coveralls)](https://coveralls.io/github/jamiemcconnell/joi-extension-date-within?branch=coveralls)
+[![dependencies Status](https://david-dm.org/jamiemcconnell/joi-extension-date-within/status.svg)](https://david-dm.org/jamiemcconnell/joi-extension-date-within)
 
 An extension to Joi to enable checking that a date is within a number of days of another date property.
 
