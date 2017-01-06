@@ -24,8 +24,8 @@ describe('date-within', function() {
 
     it('should allow a Joi.ref to be used as the from value', function() {
       var schema = Joi.object({
-        from: Joi.date().required(),
-        to: Joi.date().required().withinDays(90, Joi.ref('from'))
+        to: Joi.date().required().withinDays(90, Joi.ref('from')),
+        from: Joi.date().required()
       });
 
       var input = {
