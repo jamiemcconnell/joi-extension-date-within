@@ -82,5 +82,20 @@ describe('date-within', function() {
         Joi.attempt(new Date().valueOf() + (86400000 * 11), Joi.date().withinDays(10));
       }).to.throw('\"value\" must be within 10 days of');
     });
+
+    it('should display the description', function() {
+      const schema = Joi.date().withinDays(10, Date.UTC(2017,0,1));
+      expect(schema.describe()).to.deep.equal({
+        rules: [{
+          arg: {
+            days: 10,
+            from: Date.UTC(2017, 0, 1)
+          },
+          description: "Date should with within 10 of " + Date.UTC(2017, 0, 1),
+          name: "withinDays"
+        }],
+        type: "date"
+      });
+    });
   });
 });
