@@ -5,11 +5,11 @@ var hoek = require('hoek');
 const dayms = 86400000;
 
 module.exports = {
-  name: 'date',
+  name: 'dateWithin',
   base: Joi.any(),
   language: {
-    withinDays: 'must be within {{days}} days of {{from}}',
-    withinDaysRefError: 'invalid Joi.ref in schema'
+    days: 'must be within {{days}} days of {{from}}',
+    daysRefError: 'invalid Joi.ref in schema'
   },
   coerce(value, state, options) {
     if(typeof this._from === 'undefined') {
@@ -21,16 +21,16 @@ module.exports = {
       this._from = hoek.reach(state.parent, this._from.key);
 
       if(typeof this._from === 'undefined') {
-        return this.createError('date.withinDaysRefError', {}, state, options);
+        return this.createError('dateWithin.daysRefError', {}, state, options);
       }
     }
 
-    return (Math.ceil((value - this._from) /dayms) > this._days) ? this.createError('date.withinDays', { v: value, days: this._days, from: this._from }, state, options) : true;
+    return (Math.ceil((value - this._from) /dayms) > this._days) ? this.createError('dateWithin.days', { v: value, days: this._days, from: this._from }, state, options) : true;
 
   },
   rules: [
     {
-      name: 'withinDays',
+      name: 'days',
       description(params) {
         return `Date should with within ${params.days} of ${params.from}`;
       },
