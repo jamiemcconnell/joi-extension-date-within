@@ -13,7 +13,7 @@ var Joi = require('joi').extend(require('joi-extension-date-within'));
 
 var schema = Joi.object({
   from: Joi.date().required(),
-  to: Joi.date().required().withinDays(10, Joi.ref('from'))
+  to: Joi.dateWithin().required().days(10, Joi.ref('from'))
 });
 
 var input = {
