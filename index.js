@@ -6,7 +6,7 @@ const dayms = 86400000;
 
 module.exports = {
   name: 'dateWithin',
-  base: Joi.any(),
+  base: Joi.date(),
   language: {
     days: 'must be within {{days}} days of {{from}}',
     daysRefError: 'invalid Joi.ref in schema'
@@ -25,7 +25,7 @@ module.exports = {
       }
     }
 
-    return (Math.ceil((value - this._from) /dayms) > this._days) ? this.createError('dateWithin.days', { v: value, days: this._days, from: this._from }, state, options) : true;
+    return (Math.ceil((value - this._from) /dayms) > this._days) ? this.createError('dateWithin.days', { v: value, days: this._days, from: this._from }, state, options) : value;
 
   },
   rules: [
