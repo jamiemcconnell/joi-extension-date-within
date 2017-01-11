@@ -9,11 +9,13 @@ describe('date-within', function() {
   describe('days', function() {
 
     it('should validate success [89 days]', function() {
-      expect(Joi.attempt(new Date(2015,2,31), Joi.dateWithin().days(90, new Date(2015,0,1)))).to.be.true;
+      var inputValue = new Date(2015,2,31);
+      expect(Joi.attempt(inputValue, Joi.dateWithin().days(90, new Date(2015,0,1)))).to.equal(inputValue);
     });
 
     it('should validate success [90 days]', function() {
-      expect(Joi.attempt(new Date(2015,3,1), Joi.dateWithin().days(90, new Date(2015,0,1)))).to.be.true;
+      var inputValue = new Date(2015,3,1);
+      expect(Joi.attempt(inputValue, Joi.dateWithin().days(90, new Date(2015,0,1)))).to.equal(inputValue);
     });
 
     it('should fail [91 days]', function() {
@@ -82,6 +84,24 @@ describe('date-within', function() {
         Joi.attempt(new Date().valueOf() + (86400000 * 11), Joi.dateWithin().days(10));
       }).to.throw('\"value\" must be within 10 days of');
     });
+
+    it('should allow the use of existing Joi.date() functions', function() {
+      var input = {
+        to: 'jamie'
+      };
+
+      var schema = {
+        to: Joi.dateWithin().timestamp().days(10, new Date(2015,0,2))
+      };
+
+      //expect(Joi.attempt(input, schema)).to.deep.equal(input);
+      expect(() => {
+        Joi.attempt(input, schema);
+      }).to.throw(Error);
+
+
+    });
+
 
     it('should display the description', function() {
       const schema = Joi.dateWithin().days(10, Date.UTC(2017,0,1));
